@@ -1,0 +1,101 @@
+[fedora@fedora learn_git]$ echo > three.txt
+
+[fedora@fedora learn_git]$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/fedora/Documents/CAW/Lab2.1/learn_git/.git/
+
+[fedora@fedora learn_git]$ git add three.txt
+
+[fedora@fedora learn_git]$ git status 
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   three.txt
+
+
+[fedora@fedora learn_git]$ git commit -m "three.txt added"
+[master (root-commit) e174c6c] three.txt added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 three.txt
+[fedora@fedora learn_git]$ git status
+On branch master
+nothing to commit, working tree clean
+[fedora@fedora learn_git]$ git log
+commit e174c6cc732291bde4afd92cff3d0203e6706900 (HEAD -> master)
+Author: AdemBendjama <93732841+AdemBendjama@users.noreply.github.com>
+Date:   Sun Oct 15 19:01:05 2023 +0100
+
+    three.txt added
+[fedora@fedora learn_git]$ echo > four.txt
+
+[fedora@fedora learn_git]$ git add four.txt
+
+[fedora@fedora learn_git]$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   four.txt
+
+[fedora@fedora learn_git]$ git commit -m 'added four.txt'
+[master 3d7d041] added four.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 four.txt
+ 
+[fedora@fedora learn_git]$ rm three.txt
+
+[fedora@fedora learn_git]$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    three.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+[fedora@fedora learn_git]$ git add three.txt
+
+[fedora@fedora learn_git]$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    three.txt
+
+[fedora@fedora learn_git]$ git commit -m 'delete three.txt'
+[master ca89eb7] delete three.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 three.txt
+ 
+ 
+[fedora@fedora learn_git]$ git log
+commit ca89eb71dd368227037b1f7c8cc09aea4cb9a827 (HEAD -> master)
+Author: AdemBendjama <93732841+AdemBendjama@users.noreply.github.com>
+Date:   Sun Oct 15 19:03:00 2023 +0100
+
+    delete three.txt
+
+commit 3d7d0411dafc5d89687b4e2da9408836c2ee6b27
+Author: AdemBendjama <93732841+AdemBendjama@users.noreply.github.com>
+Date:   Sun Oct 15 19:02:12 2023 +0100
+
+    added four.txt
+
+commit e174c6cc732291bde4afd92cff3d0203e6706900
+Author: AdemBendjama <93732841+AdemBendjama@users.noreply.github.com>
+Date:   Sun Oct 15 19:01:05 2023 +0100
+
+    three.txt added
+[fedora@fedora learn_git]$ 
+
+
