@@ -1,0 +1,78 @@
+/* color rule 'orange' overrides 'purple' */
+/* css is cascading resulting in the last attribute overriding the previous ones*/
+h2{
+    color: purple;
+    color: orange;
+}
+
+body{
+    background-color: #bdc3c7;
+}
+
+h1{
+    color: #9b59b6;
+}
+
+li{
+    color: blue;
+}
+
+p{
+    background-color: yellow;
+}
+
+input{
+    border: 3px red solid;
+}
+
+.hello{
+    background-color: pink;
+}
+
+#special{
+    border: 2px blue solid;
+}
+
+div p {
+    font-size: 25px;
+}
+
+input[type="text"]{
+    background-color: grey;
+}
+
+/* select the 3rd occurance of the element of type div */
+div:nth-of-type(3) p {
+    background-color: pink;
+}
+
+/*select the 2nd occurance of the p element inside the third div */
+div:nth-of-type(3) p:nth-of-type(2){
+    border: 5px white solid;
+}
+
+div:nth-of-type(3) em{
+    color: white;
+    font-size: 20px;
+}
+
+input[type='checkbox']:checked{
+    margin-left: 50px;
+}
+
+label{
+    text-transform: uppercase;
+}
+
+#special::first-letter{
+    color: green;
+    font-size: 100px;
+}
+
+h1:hover{
+    color: black;
+}
+
+a:visited{
+    color: grey;
+}
