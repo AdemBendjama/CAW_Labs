@@ -35,14 +35,16 @@ start.addEventListener('mousedown', (e) => {
 })
 
 
-// const body = document.querySelector('body')
-
-// body.addEventListener("mouseover", (e) => {
-//     if (gameStarted) {
-//         walls.forEach(wall => {
-//             wall.style.backgroundColor = "red";
-//             stat.innerHTML = "You Lose !"
-//             gameStarted = false
-//         })
-//     }
-// })
+const outside = document.querySelectorAll('div#maze')
+console.log(outside);
+outside.forEach((element) => {
+    element.addEventListener("mouseleave", (e) => {
+        if (gameStarted) {
+            walls.forEach(wall => {
+                wall.style.backgroundColor = "red";
+                stat.innerHTML = "Don't Cheat !"
+                gameStarted = false
+            })
+        }
+    })
+})
