@@ -16,4 +16,4 @@ if (process.argv.length == 3) {
     }
 }
 
-
+module.exports = mean 
