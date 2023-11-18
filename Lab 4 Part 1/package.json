@@ -1,0 +1,22 @@
+{
+ "name": "jest-e2e",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "test": "jest"
+ },
+ "author": "",
+ "license": "ISC",
+ "devDependencies": {
+  "jest": "^29.7.0"
+ },
+ "dependencies": {
+  "@babel/preset-env": "^7.23.3",
+  "babel-jest": "^29.7.0",
+  "ts-jest": "^29.1.1"
+ },
+ "scripts": {
+    "test": "jest"
+    }
+}
