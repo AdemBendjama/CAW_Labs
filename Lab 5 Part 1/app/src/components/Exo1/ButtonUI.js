@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ButtonUI() {
+function ButtonUI(props) {
     const [clicked, setClicked] = useState(null)
 
     const handleClick = () => {
@@ -17,8 +17,8 @@ function ButtonUI() {
 
     return (
         <div>
-            <button onClick={handleClick}>ClickMe</button>
-            {clicked !== null && (clicked ? <p>Clicked</p> : <p>Not Clicked</p>)}
+            <button onClick={handleClick}>Button #{props.id} ClickMe</button>
+            {clicked !== null && (clicked ? <p>Button #{props.id} was clicked</p> : <p>Button #{props.id} was not clicked</p>)}
 
         </div>
     )
