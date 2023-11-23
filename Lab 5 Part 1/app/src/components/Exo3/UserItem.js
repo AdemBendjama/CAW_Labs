@@ -2,7 +2,7 @@
 function UserItem(props) {
 
     return (
-        <li>
+        <li onClick={props.onClick}>
             {props.user.username}
         </li>
     )

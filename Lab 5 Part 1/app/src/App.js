@@ -9,8 +9,8 @@ import './App.css'
 const tab1 = ["hello", "world", "from", "react"]
 const tab2 = ["hi", "universe", "from", "javascript"]
 const users = [
-  { id: 1, username: 'Adem Bendjama', password: "adam" },
-  { id: 2, username: 'Mammeri Rami', password: "rami" },
+  { id: 1, username: 'adam', password: "adam" },
+  { id: 2, username: 'rick', password: "rick" },
   { id: 3, username: 'John Doe', password: "john" },
   { id: 4, username: 'Steven James', password: "steven" },
 ]
@@ -59,7 +59,6 @@ function App() {
           </>
         }
         {!userAthenticated && userAthenticated != null && <p>Wrong Credentials</p>}
-
 
 
       </section>

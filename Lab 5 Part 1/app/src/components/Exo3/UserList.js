@@ -2,11 +2,15 @@ import UserItem from "./UserItem";
 
 function UserList(props) {
 
+    const handleClick = (event) => {
+        event.target.remove()
+    }
+
     return (
         <>
             <h3>User List :</h3>
             <ul>
-                {props.users.map((user) => <UserItem user={user} key={user.id} />)}
+                {props.users.map((user) => <UserItem user={user} key={user.id} onClick={handleClick} />)}
             </ul>
         </>
     )
