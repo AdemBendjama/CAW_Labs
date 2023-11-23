@@ -3,7 +3,7 @@ import UserItem from "./UserItem";
 function UserList(props) {
 
     const handleClick = (event) => {
-        event.target.remove()
+        event.target.parentElement.remove()
     }
 
     return (
