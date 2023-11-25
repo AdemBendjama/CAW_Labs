@@ -3,6 +3,7 @@ import CounterUI from './components/Exo1/CounterUI';
 import DisplayTab from './components/Exo2/DisplayTab';
 import FormSubmit from './components/Exo3/FormSubmit';
 import UserList from './components/Exo3/UserList';
+import DivSection from './components/Exo4/DivSection';
 import { useState } from 'react'
 import './App.css'
 
@@ -65,7 +66,7 @@ function App() {
 
       <section>
         <h1>Exo 4 :</h1>
-
+        <DivSection />
       </section>
     </div>
   );
