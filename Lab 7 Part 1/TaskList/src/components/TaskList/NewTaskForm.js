@@ -7,11 +7,13 @@ function NewTaskForm(props) {
     const submitHandler = (event) => {
         event.preventDefault()
         let task = event.target[0].value
-        props.onAddTask({
-            description: task,
-            subTasks: [],
-        })
 
+        if (task !== '') {
+            props.onAddTask({
+                description: task,
+                subTasks: [],
+            })
+        }
     }
 
     const changeHandler = (event) => {
@@ -20,12 +22,23 @@ function NewTaskForm(props) {
 
     return (
         <>
-            <form onSubmit={submitHandler}>
-                <label htmlFor="task"></label>
-                <input type="text" name="task" id="task" value={userInput}
-                    onChange={changeHandler} />
-
-                <button type="submit">Add Task</button>
+            <form onSubmit={submitHandler} className="mb-4">
+                <label htmlFor="task" className="block text-sm font-medium text-gray-700">
+                </label>
+                <input
+                    type="text"
+                    name="task"
+                    id="task"
+                    value={userInput}
+                    onChange={changeHandler}
+                    className="mt-1 p-2 border border-gray-300 rounded-md"
+                />
+                <button
+                    type="submit"
+                    className="mt-2 ml-6 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
+                >
+                    Add Task
+                </button>
             </form>
         </>
     )

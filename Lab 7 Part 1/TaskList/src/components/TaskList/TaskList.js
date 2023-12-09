@@ -48,20 +48,27 @@ function TaskList() {
 
     const taskComponents = tasks.map((task, index) => {
         return (
-            <Task
-                key={task.id}
-                task={task}
-                index={index}
-                onAddSubTask={handleNewSubTask}
-                onSubTaskEdit={handleSubTaskEdit}
-            />
+            <li key={task.id} className="list-none">
+                <Task
+                    task={task}
+                    index={index}
+                    onAddSubTask={handleNewSubTask}
+                    onSubTaskEdit={handleSubTaskEdit}
+                />
+            </li>
         )
     })
 
     return (
         <>
-            <NewTaskForm onAddTask={handleNewTask}></NewTaskForm>
-            {taskComponents}
+            <div className="task-list-container p-4 flex flex-col items-start">
+                <NewTaskForm onAddTask={handleNewTask} />
+
+                {/* Content aligned to the left */}
+                <ul className="w-70vw pl-0">
+                    {taskComponents}
+                </ul>
+            </div>
         </>
     )
 }

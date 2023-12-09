@@ -25,8 +25,8 @@ function SubTask(props) {
 
     return (
         <>
-            <li>
-                Sub-task {props.index + 1}:
+            <li className="mb-2">
+                <span className="font-semibold">Sub-task {props.index + 1} : &nbsp;</span>
 
                 {isEditing ? (
                     <input
@@ -34,20 +34,29 @@ function SubTask(props) {
                         id="subtask-description"
                         value={description}
                         onChange={handleSubTaskChange}
+                        className="ml-2 p-2 border border-gray-300 rounded-md"
                     />
                 ) : (
-                    description
+                    <span className={isDone ? 'line-through' : ''}>{description}</span>
                 )}
 
-                {!isEditing &&
-                    <button className="doneButton" onClick={handleClick}>
-                        {isDone ? '✔' : 'NOT DONE'}
-                    </button>
-                }
 
                 {!isDone && (
-                    <button className="editButton" onClick={handleEditing}>
+                    <button
+                        className="bg-blue-500 text-white p-2 rounded-md ml-2 hover:bg-blue-700 focus:outline-none"
+                        onClick={handleEditing}
+                    >
                         {isEditing ? 'Finish Edit' : 'Edit'}
+                    </button>
+                )}
+
+                {!isEditing && (
+                    <button
+                        className={`${isDone ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'
+                            } p-2 rounded-md ml-2 focus:outline-none`}
+                        onClick={handleClick}
+                    >
+                        {isDone ? '✔' : 'Complete'}
                     </button>
                 )}
             </li>

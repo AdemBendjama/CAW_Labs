@@ -7,8 +7,6 @@ function App() {
 
   return (
     <div>
-
-      <h1>Tasklist App</h1>
       <TaskList></TaskList>
     </div>
 
