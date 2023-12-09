@@ -15,26 +15,53 @@ function TaskList() {
         setTasks((prevTasks) => [...prevTasks, newTask])
     }
 
-    const handleNewSubTask = (index) => {
-        let newTasks = [...tasks]
-        let currentTask = tasks[index]
-        let subTasks = currentTask.subTasks
-        currentTask = { ...currentTask, subTasks: [...subTasks, { id: uuidv4(), description: 'New SubTask !' }] }
-        newTasks[index] = currentTask
-        setTasks(newTasks)
+    const handleNewSubTask = (taskID) => {
+        setTasks((prevTasks) => prevTasks.map((task) =>
+            task.id === taskID ? {
+                ...task,
+                subTasks: [...task.subTasks, { id: uuidv4(), description: 'New SubTask !' }]
+            }
+                : task
+        ))
+    }
+
+    const handleSubTaskEdit = (taskID, subtaskID, description) => {
+        setTasks((prevTasks) => prevTasks.map((task) =>
+            task.id === taskID ? {
+                ...task,
+                subTasks: task.subTasks.map((subtask) =>
+                    subtask.id === subtaskID ? {
+                        ...subtask,
+                        description: description
+                    } : (
+                        subtask
+                    )
+                )
+
+            } : (
+                task
+            )
+        ))
     }
 
 
 
-    const list = tasks.map((task, index) => {
+    const taskComponents = tasks.map((task, index) => {
         return (
-            <Task key={task.id} task={task.description} index={index} subTasks={task.subTasks} onAddSubTask={handleNewSubTask}></Task>
+            <Task
+                key={task.id}
+                task={task}
+                index={index}
+                onAddSubTask={handleNewSubTask}
+                onSubTaskEdit={handleSubTaskEdit}
+            />
         )
     })
+
     return (
         <>
             <NewTaskForm onAddTask={handleNewTask}></NewTaskForm>
-            {list}
+            {taskComponents}
         </>
     )
 }

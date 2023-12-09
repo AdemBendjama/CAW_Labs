@@ -4,40 +4,52 @@ import { useState } from "react";
 
 function SubTask(props) {
 
-    const [done, setDone] = useState(false)
-    const [editing, setEditing] = useState(false)
-    const [description, setDescription] = useState(props.subtask)
+    const [isDone, setIsDone] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [description, setDescription] = useState(props.subtask);
 
     const handleClick = () => {
-        setDone(true)
-
-    }
+        setIsDone(true);
+    };
 
     const handleEditing = () => {
-        if (editing) {
-            setEditing(false)
-
-        } else {
-            setEditing(true)
-
+        if (isEditing) {
+            props.onSubTaskEdit(props.taskID, props.subtask.id, description)
         }
-
-    }
+        setIsEditing(!isEditing);
+    };
 
     const handleSubTaskChange = (event) => {
-        setDescription(event.target.value)
-    }
+        setDescription(event.target.value);
+    };
 
     return (
         <>
             <li>
+                Sub-task {props.index + 1}:
 
-                sub-task {props.index + 1}:
-                {editing
-                    ? <input type="text" id="subtask-description" value={description} onChange={handleSubTaskChange} />
-                    : props.subtask}
-                <button className="doneButton" onClick={handleClick}>{done ? '✔' : 'NOT DONE'}</button>
-                <button className="editButton" onClick={handleEditing}>Edit</button>
+                {isEditing ? (
+                    <input
+                        type="text"
+                        id="subtask-description"
+                        value={description}
+                        onChange={handleSubTaskChange}
+                    />
+                ) : (
+                    description
+                )}
+
+                {!isEditing &&
+                    <button className="doneButton" onClick={handleClick}>
+                        {isDone ? '✔' : 'NOT DONE'}
+                    </button>
+                }
+
+                {!isDone && (
+                    <button className="editButton" onClick={handleEditing}>
+                        {isEditing ? 'Finish Edit' : 'Edit'}
+                    </button>
+                )}
             </li>
         </>
     )
